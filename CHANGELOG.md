@@ -2,6 +2,38 @@
 
 ## v0.19
 
+### v0.19.5 - (June 7, 2019)
+
+* **NEW** 🎉
+  * Add support for AWS Redshift. Issue [#264](https://github.com/mtxr/vscode-sqltools/issues/264)
+
+### v0.19.4 - (June 1, 2019)
+
+* **NEW** 🎉
+  * Dialect configs extended to match connector options. Issue [#235](https://github.com/mtxr/vscode-sqltools/issues/235)
+  * Oracle data types in stored procedures. Thanks to [@mickeypearce](https://github.com/mickeypearce). PR [#260](https://github.com/mtxr/vscode-sqltools/pull/260)
+
+### v0.19.3 - (May 30, 2019)
+
+* **NEW** 🎉
+  * Upgrade SQLite lib to 4.0.8 to support NodeJS v12. Issue [#256](https://github.com/mtxr/vscode-sqltools/issues/256)
+  * Add/edit SQLite connections will be relative to workspace. Thanks to [@mitchellsimoens](https://github.com/mitchellsimoens). PR [#255](https://github.com/mtxr/vscode-sqltools/pull/255)
+
+* **Fix** 🎉
+  * Fixed edit connection not using existing port. Issue [#224](https://github.com/mtxr/vscode-sqltools/issues/224)
+  * Fixed column filtering breaking results screen. Issue [#251](https://github.com/mtxr/vscode-sqltools/issues/251)
+  * Fixed results screen taking focus after running query. Issue [#254](https://github.com/mtxr/vscode-sqltools/issues/254)
+  * Fixed saving results using editor button. Issue [#257](https://github.com/mtxr/vscode-sqltools/issues/257)
+
+### v0.19.2 - (May 24, 2019)
+
+* **Fix** 🎉
+  * Fixed explorer tree when tree items have dots. Issue [#242](https://github.com/mtxr/vscode-sqltools/issues/242)
+  * Hiding sqlite_sequence from explorer. Issue [#152](https://github.com/mtxr/vscode-sqltools/issues/152)
+
+* **Enhancements**
+  * Enhanced speed removing cycle references. Thanks to [@ariel-bentu](https://github.com/ariel-bentu). PR [#233](https://github.com/mtxr/vscode-sqltools/pull/233)
+
 ### v0.19.1 - (May 20, 2019)
 
 * **NEW** 🎉
@@ -25,7 +57,7 @@
   * Fixed GO delimiter breaking queries on results screen. Issue [#226](https://github.com/mtxr/vscode-sqltools/issues/226)
 
 * **DOCS Updates**
-  * Add SSL example to PostgreSQL docs. thanks to [@lawrencegripper](https://github.com/lawrencegripper). PR [#223](https://github.com/mtxr/vscode-sqltools/pull/223)
+  * Add SSL example to PostgreSQL docs. Thanks to [@lawrencegripper](https://github.com/lawrencegripper). PR [#223](https://github.com/mtxr/vscode-sqltools/pull/223)
 
 * **Breaking Changes**
   * Remove deprecated (v0.17.7) `sqltools.previewLimit` in favor of `sqltools.results.limit`.

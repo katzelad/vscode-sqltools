@@ -10,6 +10,7 @@ const dialects = {
   MSSQL,
   MySQL,
   PostgreSQL,
+  'AWS Redshift': PostgreSQL, // alias
   OracleDB,
   SQLite,
   SAPHana,

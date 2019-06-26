@@ -1,12 +1,13 @@
 import MySQLLib from 'mysql';
 import {
   ConnectionDialect,
-  ConnectionInterface,
 } from '@sqltools/core/interface';
 import * as Utils from '@sqltools/core/utils';
 import GenericDialect from '@sqltools/core/dialect/generic';
 import Queries from './queries';
 import { DatabaseInterface } from '@sqltools/core/plugin-api';
+import fs from 'fs';
+
 export default class MySQLDefault extends GenericDialect<MySQLLib.Pool> implements ConnectionDialect {
   queries = Queries;
   public open() {
@@ -14,9 +15,12 @@ export default class MySQLDefault extends GenericDialect<MySQLLib.Pool> implemen
       return this.connection;
     }
 
-    const { ssl } = this.credentials.mysqlOptions || <ConnectionInterface['mysqlOptions']>{};
-    if (typeof ssl === 'boolean') {
-      throw new Error('SSL as boolean only supported for xprotocol. See: https://vscode-sqltools.mteixeira.dev/connections/mysql#2-ssl');
+    const mysqlOptions: any = this.credentials.mysqlOptions || {};
+    if (typeof mysqlOptions.ssl === 'object') {
+      ['ca', 'cert', 'crl', 'key', 'pfx'].forEach((k) => {
+        if (!mysqlOptions.ssl[k]) return;
+        mysqlOptions.ssl[k] = fs.readFileSync(mysqlOptions.ssl[k]);
+      });
     }
 
     const pool = MySQLLib.createPool({
@@ -28,8 +32,8 @@ export default class MySQLDefault extends GenericDialect<MySQLLib.Pool> implemen
       password: this.credentials.password,
       user: this.credentials.username,
       multipleStatements: true,
-      ssl,
-      dateStrings: true
+      dateStrings: true,
+      ...mysqlOptions
     });
 
     return new Promise<MySQLLib.Pool>((resolve, reject) => {

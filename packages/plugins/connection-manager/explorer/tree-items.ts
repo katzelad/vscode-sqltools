@@ -34,7 +34,7 @@ export class SidebarConnection extends SidebarAbstractItem<SidebarResourceGroup<
   public tree: { [id: string]: SidebarResourceGroup } = {};
 
   public get items() {
-    return asArray(this.tree);
+    return asArray<SidebarResourceGroup>(this.tree);
   }
   public get description() {
     return getConnectionDescription(this.conn);
@@ -301,7 +301,12 @@ export class SidebarFunction extends SidebarAbstractItem<null> {
     this.value = `${this.functionData.signature}`;
     let args = [];
     this.functionData.args.forEach((type, index) => {
-      args.push(`\${${index + 1}:${type}}`);
+      const [argName, argType] = type.split('=>');
+      if (argType && argType.trim()) {
+        args.push(`${argName} => \${${index + 1}:${argType}}`);
+      } else {
+        args.push(`\${${index + 1}:${type}}`);
+      }
     });
     this.snippet = new SnippetString(`${this.functionData.signature}(${args.join(', ')})$0`);
     this.command = {
@@ -318,7 +323,7 @@ export class SidebarResourceGroup<T extends SidebarAbstractItem = SidebarAbstrac
   public value: string;
   public tree: { [name: string]: T } = {};
   public get items() {
-    return asArray(this.tree);
+    return asArray<T>(this.tree);
   }
   public get description() {
     return this.detail || `${Object.keys(this.tree).length} ${this.label.toLowerCase()}`;

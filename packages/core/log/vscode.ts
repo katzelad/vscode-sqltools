@@ -48,7 +48,7 @@ class OutputChannelLogger implements Console {
     patchedConsole.log(this.prefix('DEBUG'), message, ...data);
   }
   debug = (message: string, ...data: any[]) => {
-    patchedConsole.debug(this.prefix('DEBUG'), message, ...data);
+    patchedConsole.log(this.prefix('DEBUG'), message, ...data);
   }
   error = (message: string, ...data: any[]) => {
     patchedConsole.error(this.prefix('ERROR'), message, ...data);
@@ -69,4 +69,4 @@ class OutputChannelLogger implements Console {
   }
 }
 
-global.console = new OutputChannelLogger();
+export default new OutputChannelLogger();

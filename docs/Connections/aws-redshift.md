@@ -1,14 +1,16 @@
 
-# PostgreSQL Start Guide
+# AWS Redshift Start Guide
+
+> Remember: Redshift is a fork from postgresql. We use the same driver to connect for both Redshift and PostgreSQL.
 
 ## 1. Connections
 
 Connection example:
 ```json
 {
-  "name": "PGSQL",
+  "name": "Redshift",
   "server": "localhost",
-  "dialect": "PostgreSQL",
+  "dialect": "AWS Redshift",
   "port": 5433,
   "database": "test_db",
   "username": "root",
@@ -20,13 +22,13 @@ Connection example:
 
 ### 1.1 Specific Options
 
-PostgreSQL driver specific options can be passed using `pgOptions` settings.
+AWS Redshift driver specific options can be passed using `pgOptions` settings.
 
 ```json
 {
-  "name": "PGSQL",
+  "name": "Redshift",
   "server": "localhost",
-  "dialect": "PostgreSQL",
+  "dialect": "AWS Redshift",
   "port": 5433,
   "database": "test_db",
   "username": "root",
@@ -40,28 +42,7 @@ PostgreSQL driver specific options can be passed using `pgOptions` settings.
 ```
 You can use any options defined in https://node-postgres.com/features/connecting#programmatic in `pgOptions`.
 
-They will be passed to the pool constructor directly. See https://github.com/mtxr/vscode-sqltools/blob/master/packages/core/dialect/pgsql/index.ts .
-
-#### Example: Azure Postgres
-
-This example enables `SSL` for connecting to an Azure Postgres instance.
-
-```
-{
-    "name": "PGSQL",
-    "server": "HOSTNAME.postgres.database.azure.com",
-    "dialect": "PostgreSQL",
-    "port": 5432,
-    "database": "dbnamehere",
-    "username": "username@hostname",
-    "askForPassword": false,
-    "password": "password",
-    "connectionTimeout": 15,
-    "pgOptions": {
-        "ssl": "true"
-    }
-}
-```
+They will be passed to the pool constructor directly. See https://github.com/mtxr/vscode-sqltools/blob/master/packages/core/dialect/Redshift/index.ts .
 
 
 ### 1.2 Alternative Connection Strings
@@ -72,10 +53,10 @@ Using connectionURI for previous example:
 
 ```json
 {
-  "name": "PGSQL",
+  "name": "Redshift",
   "server": "localhost",
-  "dialect": "PostgreSQL",
-  "connectString": "postgresql://root:root@localhost:5433/test_db",
+  "dialect": "AWS Redshift",
+  "connectString": "AWS Redshift://root:root@localhost:5433/test_db",
   "askForPassword": false,
   "connectionTimeout": 15,
 }

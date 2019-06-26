@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://raw.githubusercontent.com/mtxr/vscode-sqltools/master/static/banner.png" />
+<img src="https://raw.githubusercontent.com/mtxr/vscode-sqltools/master/static/header-hero.png" />
 </p>
 
 <hr />
@@ -63,7 +63,8 @@ All the amazing [contributors](https://github.com/mtxr/vscode-sqltools/graphs/co
 
 Our supporters:
 
-- @benyaminl Benyamin Limanto
+- Benyamin Limanto ([@benyaminl](https://github.com/benyaminl))
+- Kornei Dontsov ([@KorneiDontsov](https://github.com/KorneiDontsov))
 
 > Want to support? [Click here](https://www.patreon.com/mteixeira).
 

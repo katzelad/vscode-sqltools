@@ -2,7 +2,7 @@
     "name": "@sqltools/extension",
     "displayName": "SQLTools - Database tools",
     "description": "Database management done right. Connection explorer, query runner, intellisense, bookmarks, query history. Feel like a database hero!",
-    "version": "0.19.1",
+    "version": "0.19.5",
     "publisher": "mtxr",
     "license": "MIT",
     "preview": false,
@@ -37,6 +37,7 @@
         "oracledb",
         "postgres",
         "postgresql",
+        "redshift",
         "rdbms",
         "dbms",
         "sql server",
@@ -458,6 +459,7 @@
                                     "MySQL",
                                     "OracleDB",
                                     "PostgreSQL",
+                                    "AWS Redshift",
                                     "SQLite",
                                     "SAPHana",
                                     "ExampleDialect"
@@ -470,7 +472,7 @@
                                     "string",
                                     "null"
                                 ],
-                                "description": "Connect string. Supporting Oracle and PostgreSQL.",
+                                "description": "Connect string. Support for Oracle, PostgreSQL and AWS Redshift.",
                                 "required": false
                             },
                             "mssqlOptions": {
@@ -894,7 +896,7 @@
         "babel-loader": "^8.0.4",
         "copy-webpack-plugin": "^5.0.0",
         "cross-env": "^5.2.0",
-        "css-loader": "^2.1.1",
+        "css-loader": "^3.0.0",
         "jest": "^24.5.0",
         "jest-cli": "^24.5.0",
         "node-sass": "^4.11.0",
